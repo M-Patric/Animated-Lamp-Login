@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5eee2">
+  <meta name="description" content="A warm, interactive lamp-inspired sign-in experience.">
+  <title>Welcome Back | Lamp Login</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="room" id="room">
+    <section class="lamp-side" aria-label="Interactive lamp">
+      <div class="lamp-ambient" aria-hidden="true"></div>
+      <div class="dust-motes" id="dustMotes" aria-hidden="true"></div>
+
+      <div class="stage-brand" aria-label="Lamp login">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M10 12.5a6 6 0 1 1 12 0c0 2.6-1.2 4.1-2.3 5.5-.8 1-1.2 1.8-1.2 2.7h-5c0-.9-.4-1.7-1.2-2.7C11.2 16.6 10 15.1 10 12.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+            <path d="M13.5 23.2h5M14.5 26h3M16 4V2M5.9 7.2 4.5 5.8M26.1 7.2l1.4-1.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-label">A LITTLE LIGHT</span>
+      </div>
+
+      <aside class="pull-coach" id="pullCoach" aria-labelledby="coachTitle" aria-describedby="coachText">
+        <span class="coach-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 4v15m0 0-5-5m5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="coach-copy">
+          <span class="coach-kicker">BEFORE YOU BEGIN</span>
+          <strong id="coachTitle">Give the cord a gentle pull</strong>
+          <span id="coachText">Pull it down to switch on the lamp and reveal your sign-in.</span>
+        </span>
+        <span class="coach-bubbles" aria-hidden="true"><i></i><i></i><i></i></span>
+      </aside>
+
+      <div class="lamp-container" id="lampContainer">
+        <div class="lamp-halo"></div>
+        <div class="light-beam"></div>
+        <div class="lamp-shade">
+          <span class="shade-highlight"></span>
+        </div>
+        <div class="lamp-bulb"></div>
+        <div class="lamp-stem"></div>
+        <div class="lamp-joint"></div>
+        <div class="lamp-base"></div>
+        <div class="lamp-table-shadow"></div>
+
+        <svg class="cord-svg" id="cordSvg" viewBox="0 0 80 220" focusable="false">
+          <path id="cordPath" d="M 12 0 Q 14 45 12 100"></path>
+        </svg>
+        <button class="string-handle" id="stringHandle" type="button" aria-label="Pull the lamp cord down to switch on the lamp" aria-describedby="pullHelp" aria-pressed="false">
+          <span class="cord-knob" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <p class="sr-only" id="pullHelp">Pull the lamp cord down to switch on the lamp and reveal the sign-in form. Press Enter or Space to toggle it.</p>
+      <p class="lamp-caption" id="lampCaption" aria-live="polite">A calmer start is just one pull away.</p>
+      <span class="stage-grain" aria-hidden="true"></span>
+    </section>
+
+    <section class="login-side" aria-label="Sign in">
+      <div class="login-panel-wrap">
+        <div class="login-gate" id="loginGate" aria-hidden="false">
+          <span class="gate-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M15 21v-5a9 9 0 0 1 18 0v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <rect x="10" y="20" width="28" height="21" rx="6" stroke="currentColor" stroke-width="2.2"/>
+              <circle cx="24" cy="30" r="2.2" fill="currentColor"/>
+              <path d="M24 32v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="gate-eyebrow">YOUR SPACE IS WAITING</span>
+          <h1>A little light,<br>then you're in.</h1>
+          <p>Pull the cord on the left to bring your sign-in form into view.</p>
+          <span class="gate-note"><i></i> Waiting for the lamp</span>
+        </div>
+
+        <form class="login-card" id="loginForm" aria-hidden="true" inert>
+          <div class="login-heading">
+            <span class="eyebrow">GOOD TO SEE YOU AGAIN</span>
+            <h1>Welcome back.</h1>
+            <p>Your corner of the world is right where you left it.</p>
+          </div>
+
+          <div class="inputs">
+            <label class="field" for="email">
+              <span class="field-label">Email address</span>
+              <span class="input-wrap">
+                <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3.5" y="5" width="17" height="14" rx="3" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="m5 7 7 5.5L19 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" inputmode="email" required>
+              </span>
+            </label>
+
+            <label class="field" for="password">
+              <span class="field-label">Password</span>
+              <span class="input-wrap">
+                <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="4" y="10" width="16" height="11" rx="3" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  <circle cx="12" cy="15.5" r="1.2" fill="currentColor"/>
+                </svg>
+                <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+                <button class="password-toggle" id="passwordToggle" type="button" aria-label="Show password" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M2.5 12s3.3-6 9.5-6 9.5 6 9.5 6-3.3 6-9.5 6-9.5-6-9.5-6Z" stroke="currentColor" stroke-width="1.6"/>
+                    <circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.6"/>
+                  </svg>
+                </button>
+              </span>
+            </label>
+          </div>
+
+          <div class="form-options">
+            <label class="remember-option" for="rememberMe">
+              <input id="rememberMe" name="rememberMe" type="checkbox">
+              <span class="custom-check" aria-hidden="true"></span>
+              <span>Remember me</span>
+            </label>
+            <button class="text-action" id="forgotPassword" type="button">Forgot password?</button>
+          </div>
+
+          <button class="sign-in" type="submit">
+            <span>Sign in</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4.5 12h14m-5.5-5.5 5.5 5.5-5.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="divider"><span></span><b>OR CONTINUE WITH</b><span></span></div>
+
+          <div class="socials">
+            <button class="social-btn" type="button" data-provider="Google">
+              <span class="google-mark" aria-hidden="true">G</span>
+              <span>Google</span>
+            </button>
+            <button class="social-btn" type="button" data-provider="GitHub">
+              <svg class="github-mark" viewBox="0 0 19 19" aria-hidden="true"><use href="icons.svg#github-icon"></use></svg>
+              <span>GitHub</span>
+            </button>
+          </div>
+
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+          <p class="demo-note">This is a front-end sign-in concept.</p>
+        </form>
+      </div>
+      <p class="login-footer">A softer welcome, every time.</p>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
